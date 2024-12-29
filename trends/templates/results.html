@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Twitter Trending Topics Results</title>
+</head>
+<body>
+    <h1>Twitter Trending Topics Results</h1>
+    {% if error %}
+        <p>Error: {{ error }}</p>
+    {% else %}
+        <p>These are the most happening topics as on {{ record.timestamp }}:</p>
+        <ul>
+            <li>Name of trend1: {{ record.trend1 }}</li>
+            <li>Name of trend2: {{ record.trend2 }}</li>
+            <li>Name of trend3: {{ record.trend3 }}</li>
+            <li>Name of trend4: {{ record.trend4 }}</li>
+            <li>Name of trend5: {{ record.trend5 }}</li>
+        </ul>
+        <p>The IP address used for this query was {{ record.ip_address }}.</p>
+        <h4>Here’s a JSON extract of this record from the MongoDB:</h4>
+        <pre>{{ record|safe }}</pre>
+        <a href="/run_script/">Click here to run the query again</a>
+    {% endif %}
+</body>
+</html>
